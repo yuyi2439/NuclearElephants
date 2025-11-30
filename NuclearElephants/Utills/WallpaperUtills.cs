@@ -63,7 +63,7 @@ public static class WallpaperUtils
         var proman = FindWindow("Progman", null);
 
         // 发送消息 生成 WorkerW
-        SendMessageTimeout(proman, 0x52c, new IntPtr(0), IntPtr.Zero, SendMessageTimeoutFlags.SMTO_NORMAL, 0x3e8, out var zero);
+        SendMessageTimeout(proman, 0x52c, IntPtr.Zero, IntPtr.Zero, SendMessageTimeoutFlags.SMTO_NORMAL, 0x3e8, out var zero);
         
         var defView = IntPtr.Zero;
         EnumChildWindows(proman, (hwnd, lparam) =>
@@ -87,7 +87,7 @@ public static class WallpaperUtils
         msgb.ShowWindowAsync();
         
         // 设置扩展窗口样式(Layered)
-        SetWindowLongA(appWindowHandle, GWL_EXSTYLE, WS_EX_LAYERED);
+        SetWindowLongA(appWindowHandle, GWL_EXSTYLE, WS_EX_LAYERED | WS_EX_TRANSPARENT);
         
         // 设置透明窗口
         SetLayeredWindowAttributes(appWindowHandle, 0, 255, LWA_ALPHA);

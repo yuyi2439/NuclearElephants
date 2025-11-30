@@ -112,6 +112,7 @@ namespace NuclearElephants.Utills
             public static extern long SetWindowLongA(IntPtr hWnd, int nIndex, int dwNewLong);
             
             public const int WS_EX_LAYERED = 0x00080000;
+            public const int WS_EX_TRANSPARENT = 0x00000020;
             
             public const int GWL_EXSTYLE = -20;
             
